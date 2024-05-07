@@ -1,12 +1,18 @@
 <script setup>
 import {ref} from 'vue';
-import authService from '../services/auth/authService';
+import { useRouter } from 'vue-router'
+import authService from '../../services/auth/authService';
+
+const router = useRouter()
 
 const username = ref("");
 const password = ref("");
 
 async function submit(){
-    await authService.login({username: username.value, password: password.value});
+    let result = await authService.register({username: username.value, password: password.value});
+    if(result){
+      router.push('/')
+    }
 }
 
 </script>
@@ -14,7 +20,7 @@ async function submit(){
 <template>
   <input type="text" v-model="username" hint="Username">
   <input type="text" v-model="password" hint="Password">
-  <button @click="submit">Login</button>
+  <button @click="submit">Register</button>
 </template>
 
 <style scoped>
