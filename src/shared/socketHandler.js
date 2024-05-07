@@ -5,7 +5,7 @@ var socket;
 
 
 export function connectSocket() {
-    socket = io("http://localhost:3000");
+    socket = io(import.meta.env.VITE_SOCKET_URL);
     socket.on("connect", () => {
         socket.emit("addNewUser", activeUser.getUser().username);
     });

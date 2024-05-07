@@ -4,7 +4,7 @@ import axios from 'axios';
 import { activeUser } from '../shared/user.js';
 
 const apiClient = axios.create({
-    baseURL: 'http://localhost:8080/api',
+    baseURL: import.meta.env.VITE_API_URL,
     headers: {
         'Content-Type': 'application/json',
         'Authorization': activeUser.getJwt()
