@@ -18,13 +18,16 @@ async function submit() {
 </script>
 
 <template>
-    <div class="input-container">
-        <input type="text" v-model="username" hint="Username">
+
+    <div>
+        <div class="input-container">
+            <input type="text" v-model="username" placeholder="Username" class="input-field">
+        </div>
+        <div class="input-container">
+            <input type="text" v-model="password" placeholder="Password" class="input-field">
+        </div>
+        <button @click="submit" class="register-button">Register</button>
     </div>
-    <div class="input-container">
-        <input type="text" v-model="password" hint="Password">
-    </div>
-    <button @click="submit" class="register-button">Register</button>
 </template>
 
 <style scoped>
